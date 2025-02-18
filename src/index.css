@@ -1,13 +1,294 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Base Container Styles */
+.login-container,
+.consent-container,
+.payment-container,
+.upload-container,
+.auth-container,
+.sign-up-container {
+  max-width: 560px;
+  width: 92%;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.login-container:hover,
+.auth-container:hover,
+.sign-up-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* Typography */
+h2 {
+  font-size: 2.4rem;
+  color: #1a2b3c;
+  font-weight: 800;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37 0%, #f4cd68 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+h2:hover:after {
+  width: 120px;
+}
+
+/* Form Elements */
+input {
+  width: 100%;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  color: #1a2b3c;
+}
+
+input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 16px 28px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:not(.google-button) {
+  background: linear-gradient(135deg, #d4af37 0%, #f4cd68 100%);
+  color: #000000;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+}
+
+button:not(.google-button):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.35);
+}
+
+button:disabled {
+  background: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Google Button */
+.google-button {
+  background: #ffffff;
+  color: #1a2b3c;
+  border: 2px solid #e1e8ed;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.google-button:hover {
+  background: #f8fafc;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Divider */
+.auth-divider {
+  text-align: center;
+  margin: 32px 0;
+  position: relative;
+}
+
+.auth-divider:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e1e8ed, transparent);
+}
+
+.auth-divider span {
+  background-color: #ffffff;
+  padding: 0 20px;
+  color: #64748b;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Error States */
+.error,
+.error-message {
+  color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: 16px;
+  border-radius: 10px;
+  margin: 16px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* Links */
+.auth-switch {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.auth-switch a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.auth-switch a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, #d4af37 0%, #f4cd68 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.auth-switch a:hover {
+  color: #b4941f;
+}
+
+.auth-switch a:hover:after {
+  transform: scaleX(1);
+}
+
+/* Consent Section */
+.consent-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #1a2b3c;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.consent-checkbox label:hover {
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+/* Payment Section */
+.payment-details {
+  padding: 28px;
+  background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border: 1px solid #e1e8ed;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-details:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.payment-button {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.2);
+}
+
+.payment-button:hover {
+  background: linear-gradient(135deg, #218838 0%, #1ca086 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(40, 167, 69, 0.3);
+}
+/* Global styles for input fields */
+input {
+  width: 100%; /* Full width of the parent */
+  max-width: 560px; /* Limit the maximum width */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+.benefits-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-section h3 {
+  color: #1a2b3c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.benefits-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.benefits-section li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
 }
