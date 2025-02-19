@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route,Navigate } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Login from '../src/components/Auth/Login';
-import SignUp from './components/Auth/SignUp';
 import ConsentForm from '../src/components/Consent/ConsentForm';
 import Payment from '../src/components/Payment/Payment';
 import FileUpload from '../src/components/Upload/FileUpload';
+import SignUp from './components/Auth/SignUp';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ECaseFill">
       <div className="App">
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
