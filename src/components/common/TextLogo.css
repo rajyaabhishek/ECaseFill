@@ -1,0 +1,40 @@
+.text-logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.text-logo-container.left {
+  justify-content: flex-start;
+}
+
+.text-logo-container.center {
+  justify-content: center;
+}
+
+.text-logo-container.right {
+  justify-content: flex-end;
+}
+
+.text-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2b3c;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #1a2b3c 0%, #3a4b5c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.text-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Add this to ensure links containing the text logo don't have underlines */
+.text-logo-container a {
+  text-decoration: none;
+}

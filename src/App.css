@@ -18,10 +18,20 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+.content-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 20px;
+  }
 }
 
 .App-link {
@@ -35,4 +45,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
 }

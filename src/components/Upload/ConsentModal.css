@@ -1,0 +1,201 @@
+.consent-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.consent-modal {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Add this for the circular close button */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #64748b;
+  padding: 0;
+  z-index: 10;
+}
+
+.modal-close-button:hover {
+  background: #e2e8f0;
+  color: #1a2b3c;
+  transform: scale(1.05);
+}
+
+/* Remove the old close button styles */
+.close-button {
+  display: none;
+}
+
+.consent-modal-header {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.shield-icon {
+  font-size: 2.5rem;
+  color: #d4af37;
+}
+
+.consent-modal-header h2 {
+  font-size: 1.8rem;
+  color: #1a2b3c;
+  margin: 0;
+}
+
+.consent-section {
+  margin-bottom: 30px;
+}
+
+.consent-section h3 {
+  color: #1a2b3c;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.consent-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.consent-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.point-marker {
+  background: linear-gradient(135deg, #d4af37 0%, #f4cd68 100%);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.consent-point p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-info {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  color: #475569;
+}
+
+.consent-modal-footer {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancel-button,
+.agree-button {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button {
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+}
+
+.cancel-button:hover {
+  background: #e2e8f0;
+}
+
+.agree-button {
+  background: linear-gradient(135deg, #d4af37 0%, #f4cd68 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.agree-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .consent-modal {
+    padding: 20px;
+  }
+  
+  .consent-modal-footer {
+    flex-direction: column;
+  }
+  
+  .consent-point {
+    gap: 10px;
+  }
+}
