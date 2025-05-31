@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "https://ecase.site/static/css/main.2625218f.css",
-    "main.js": "https://ecase.site/static/js/main.1e29231b.js",
+    "main.css": "https://ecase.site/static/css/main.04b464eb.css",
+    "main.js": "https://ecase.site/static/js/main.6af74087.js",
     "static/js/511.9729e1c4.chunk.js": "https://ecase.site/static/js/511.9729e1c4.chunk.js",
     "static/media/pdf.worker.min.mjs": "https://ecase.site/static/media/pdf.worker.min.46b6a4de439fac162cf4.mjs",
     "index.html": "https://ecase.site/index.html",
-    "main.2625218f.css.map": "https://ecase.site/static/css/main.2625218f.css.map",
-    "main.1e29231b.js.map": "https://ecase.site/static/js/main.1e29231b.js.map",
+    "main.04b464eb.css.map": "https://ecase.site/static/css/main.04b464eb.css.map",
+    "main.6af74087.js.map": "https://ecase.site/static/js/main.6af74087.js.map",
     "511.9729e1c4.chunk.js.map": "https://ecase.site/static/js/511.9729e1c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2625218f.css",
-    "static/js/main.1e29231b.js"
+    "static/css/main.04b464eb.css",
+    "static/js/main.6af74087.js"
   ]
 }
